@@ -9,7 +9,8 @@ var PlayerSchema = new Schema({
   // `title` is required and of type String
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   // `link` is required and of type String
   team: {
@@ -20,9 +21,9 @@ var PlayerSchema = new Schema({
     type: Number,
     required: true
   },
-  link: {
-    type: Number,
-    required: false
+  team_link: {
+    type: String,
+    required: true
   },
   // `note` is an object that stores a Note id
   // The ref property links the ObjectId to the Note model

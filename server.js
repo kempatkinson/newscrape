@@ -26,9 +26,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect("mongodb://localhost/mongoHeadlines");
+mongoose.connect(MONGODB_URI);
 
 // Routes
 
@@ -43,7 +44,7 @@ axios.get("https://www.basketball-reference.com/leagues/NBA_2020_per_game.html")
   $("tr.full_table").each(function (i, element) {
     // console.log("/////////////////////// here is the beginning of node " + i +  " kid 1!")
     // console.log(this.children[0].attribs)
-    console.log("/////////////////////// here is the beginning of node " + i +  " kkid 2!")
+    // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 2!")
     // console.log(this.children[1].children[0].attribs.class[1])
     // // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 3!")
     // // console.log(this.children[2].attribs.class)
@@ -58,6 +59,7 @@ axios.get("https://www.basketball-reference.com/leagues/NBA_2020_per_game.html")
     result.name = this.children[1].attribs.csk,
     result.age = this.children[3].children[0].data,
     result.team = this.children[4].children[0].children[0].data,
+    result.team_link = "https://www.basketball-reference.com/" + this.children[4].children[0].attribs.href;
     db.Player.create(result)
       .then(function(dbPlayer) {
     //     // View the added result in the console
