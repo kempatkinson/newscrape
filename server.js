@@ -61,7 +61,6 @@ axios.get("https://www.basketball-reference.com/leagues/NBA_2020_per_game.html")
     result.team = this.children[4].children[0].children[0].data,
     result.team_link = "https://www.basketball-reference.com/" + this.children[4].children[0].attribs.href;
     result.player_link = "https://www.basketball-reference.com" + this.children[1].children[0].attribs.href;
-    console.log(result.player_link)
     db.Player.create(result)
       .then(function(dbPlayer) {
     //     // View the added result in the console
