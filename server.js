@@ -79,6 +79,11 @@ axios.get("https://www.basketball-reference.com/leagues/NBA_2020_per_game.html")
 
 // });
 
+
+// Route for getting all Articles from the db
+app.get("/", function(req, res){
+  res.redirect("/player");
+})
 // Route for getting all Articles from the db
 app.get("/player", function(req, res) {
   // Grab every document in the Articles collection
