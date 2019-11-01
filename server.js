@@ -45,12 +45,12 @@ axios.get("https://www.basketball-reference.com/leagues/NBA_2020_per_game.html")
     // console.log("/////////////////////// here is the beginning of node " + i +  " kid 1!")
     // console.log(this.children[0].attribs)
     // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 2!")
-    // console.log(this.children[1].children[0].attribs.class[1])
+    // console.log(this.children[1].children[0].attribs.href)
     // // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 3!")
     // // console.log(this.children[2].attribs.class)
     // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 4!")
     // console.log(this.children[3].children[0].data)
-    // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 5!")
+    // // console.log("/////////////////////// here is the beginning of node " + i +  " kkid 5!")
     // console.log(this.children[4].children[0].children[0].data)
     // console.log("https://www.basketball-reference.com/" + this.children[4].children[0].attribs.href)
 
@@ -60,14 +60,16 @@ axios.get("https://www.basketball-reference.com/leagues/NBA_2020_per_game.html")
     result.age = this.children[3].children[0].data,
     result.team = this.children[4].children[0].children[0].data,
     result.team_link = "https://www.basketball-reference.com/" + this.children[4].children[0].attribs.href;
+    result.player_link = "https://www.basketball-reference.com" + this.children[1].children[0].attribs.href;
+    console.log(result.player_link)
     db.Player.create(result)
       .then(function(dbPlayer) {
     //     // View the added result in the console
         // console.log(dbPlayer);
       })
       .catch(function(err) {
-        // If an error occurred, log it
-        console.log(err);
+        // // If an error occurred, log it
+        // console.log(err);
       });
 
 

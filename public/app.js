@@ -4,7 +4,7 @@ $.getJSON("/player", function(data) {
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
     $("#players").append(
-      "<p data-id='" + data[i]._id + "'> <a href='https://www.basketball-reference.com/'>" + data[i].name + "</a> <br/>" +
+      "<p data-id='" + data[i]._id + "'>"+ data[i].name + "<br/>" +
       "<a href='" + data[i].team_link + "'>" + data[i].team + "</a> <br />" 
       + data[i].age + "</p>") ;
   }
